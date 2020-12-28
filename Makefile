@@ -12,6 +12,7 @@ TEST_DIR ?= build/test-results/junit/
 #AWS ECR settings
 DOCKER_REGISTRY ?= 370795290611.dkr.ecr.us-east-1.amazonaws.com
 AWS_ACCOUNT_ID ?= 370795290611
+DOCKER_LOGIN_EXPRESSION :=  aws ecr get-login-password --region us-east-1 --profile docker-production-aws-admin | docker login --username AWS --password-stdin $(AWS_ACCOUNT_ID).dkr.ecr.us-east-1.amazonaws.com
 
 # Release settings
 export HTTP_PORT ?= 8000
